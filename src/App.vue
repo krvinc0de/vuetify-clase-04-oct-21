@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Navegacion from'./components/Navegacion.vue'
+import Navegacion from'@/components/Navegacion.vue'
 export default {
   name: 'App',
   components:{
