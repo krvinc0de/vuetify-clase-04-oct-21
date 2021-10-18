@@ -48,7 +48,7 @@
                   <v-btn
                     color="green darken-1"
                     text
-                    @click="dialog = false"
+                    @click="borrarUsuario(UsuarioId)"
                   >
                     Eliminar
                   </v-btn>
@@ -62,6 +62,9 @@
 
 <script>
 export default {
+  params:{
+    //cpmentario de que aqui me quede
+  },
     data() {
         return {
             usuarioDB: [],
@@ -105,7 +108,15 @@ export default {
         },
         borrarUsuario(idUsuario){
           console.log(idUsuario)
+          fetch('http://localhost/?borrar'+usuarioId)
+          .then(respuesta => respuesta.json)
+          .then((datosRespuesta)=>{
+            this.usuarioId = null
+          })
+        },
+        guardarUsuario(idUsuario){
           this.dialog = true
+          this.usuarioId = id
         }
     }
 }
