@@ -77,7 +77,7 @@
         console.log(datosUsuario)
         fetch('http://localhost/?insertar=1', {
             method: "POST",
-            body: JSON.stringify(datosUsuario)
+            body: JSON.stringify(datosUsuario) //texto plano
         })
         .then(respuesta => respuesta.json())
         .then((datosRespuesta =>{
