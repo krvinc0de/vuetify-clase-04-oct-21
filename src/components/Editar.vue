@@ -27,23 +27,23 @@
             <v-btn
             color="success"
             class="mr-4"
-            @click="guardar"
+            @click="modificarUsuario"
             >
             <v-icon left>
                 mdi-content-save
             </v-icon>
-            Guardar
+            Editar usuario
             </v-btn>
 
             <v-btn
             color="error"
             class="mr-4"
-            @click="reset"
+            @click="goHome()"
             >
             <v-icon left>
                 mdi-eraser-variant
             </v-icon>
-                Reiniciar datos
+                Regresar
             </v-btn>
 
         </v-form>
@@ -51,7 +51,43 @@
 </template>
 
 <script>
-export default {
-    
-}
+  export default {
+    data: () => ({
+      valid: true,
+      name: '',
+      nameRules: [
+        v => !!v || 'Name is required',
+        v => (v && v.length <= 10) || 'Name must be less than 10 characters',
+      ],
+      email: '',
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+      ],
+      usuario: {}
+
+    }),
+
+    methods: {
+      goHome () {
+        window.location.href="listar"
+      },
+      modificarUsuario () {
+        
+      },
+      obtenerUsuario(){
+          console.log(this.idUsuario)
+      }
+    },
+    mounted() {
+        this.obtenerUsuario()
+    },
+    computed:{
+        idUsuario: {
+            get(){
+                return this.$store.state.idUsuario
+            }
+        }
+    }
+  }
 </script>

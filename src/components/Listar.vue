@@ -7,25 +7,24 @@
             <v-data-table 
             :headers="encabezados"
             :items="usuarioDB"
-            :items-per-page="5"
+            :items-per-page="10"
             class="elevation-10"
             >
               <template #[`item.editar`]="{ item }">
-                <v-btn color="deep-purple lighten-3" small @click="editarUsuario(item)">
+                <v-btn color="deep-purple lighten-3" small @click="editarUsuario(item.id)">
                   <v-icon>
                     mdi-account-edit
                   </v-icon>
                 </v-btn>
               </template>
               <template #[`item.borrar`]="{ item }">
-                <v-btn color="red lighten-1" small @click="borrarUsuario(item.id)">
+                <v-btn color="red lighten-1" small @click="guardarUsuario(item.id)">
                   <v-icon>
                     mdi-delete
                   </v-icon>
                 </v-btn>
               </template>
             </v-data-table>
-
             <v-dialog
               v-model="dialog"
               persistent
@@ -39,7 +38,7 @@
                 <v-card-actions>
                   <v-spacer></v-spacer>
                   <v-btn
-                    color="green darken-1"
+                    color="red darken-1"
                     text
                     @click="dialog = false"
                   >
@@ -48,23 +47,21 @@
                   <v-btn
                     color="green darken-1"
                     text
-                    @click="borrarUsuario(UsuarioId)"
+                    @click="borrarUsuario(usuarioId)"
                   >
                     Eliminar
                   </v-btn>
                 </v-card-actions>
               </v-card>
             </v-dialog>
-            
         </div>
     </div>
 </template>
 
 <script>
+
+
 export default {
-  params:{
-    //cpmentario de que aqui me quede
-  },
     data() {
         return {
             usuarioDB: [],
@@ -75,7 +72,7 @@ export default {
                 {text: 'Editar', value: 'editar', sortable: false},
                 {text: 'Borrar', value: 'borrar', sortable: false}
             ],
-            dialog: false,
+            dialog: false
         }
     },
     created: function(){
@@ -103,20 +100,23 @@ export default {
             })
             .catch(console.log)
         },
-        editarUsuario(usuario){
-          console.log(usuario)
+        editarUsuario(id){
+          //console.log(usuario)
+          this.$store.commit('setIdUsuario', id)
+          window.location.href="editar"
         },
-        borrarUsuario(idUsuario){
-          console.log(idUsuario)
-          fetch('http://localhost/?borrar'+usuarioId)
+        borrarUsuario(usuarioId){
+          console.log(usuarioId)
+          fetch('http://localhost/?borrar='+usuarioId)
           .then(respuesta => respuesta.json)
           .then((datosRespuesta)=>{
             this.usuarioId = null
+            window.location.href="listar"
           })
         },
-        guardarUsuario(idUsuario){
-          this.dialog = true
+        guardarUsuario(id){
           this.usuarioId = id
+          this.dialog = true
         }
     }
 }

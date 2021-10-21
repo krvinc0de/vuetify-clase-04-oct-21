@@ -52,8 +52,7 @@
         items: [
           { title: 'Inicio', icon: 'mdi-home-city', path: '/' },
           { title: 'Listar', icon: 'mdi-format-list-checkbox', path: '/Listar' },
-          { title: 'Crear', icon: 'mdi-account-edit-outline', path: '/Crear' },
-          { title: 'Editar', icon: 'mdi-account-group-outline', path: '/Editar' },
+          { title: 'Crear', icon: 'mdi-account-edit-outline', path: '/Crear' }
         ],
         mini: true,
       }
