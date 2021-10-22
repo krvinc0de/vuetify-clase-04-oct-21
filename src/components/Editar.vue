@@ -2,6 +2,9 @@
     <div class="pa-2 ma-2">
         <div class="text-h4">
             Template editar
+            <v-btn onclick="window.location.href='listar'">
+              prueba
+            </v-btn>
         </div>
         <v-form
             ref="form"
