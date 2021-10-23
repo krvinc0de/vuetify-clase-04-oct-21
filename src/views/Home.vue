@@ -1,5 +1,10 @@
 <template>
-  <h1>Holaa</h1>
+  <div>
+    <v-parallax
+      height="300"
+      src="https://cdn.vuetifyjs.com/images/parallax/material2.jpg">
+    </v-parallax>
+  </div>
 </template>
 
 <script>
