@@ -9,10 +9,10 @@
     >
       <v-list-item class="px-2">
         <v-list-item-avatar>
-          <v-img src="../assets/kvin.jpg"></v-img>
+          <v-img class="perfil" src="../assets/kvin.jpg"></v-img>
         </v-list-item-avatar>
 
-        <v-list-item-title>Kevin M.</v-list-item-title>
+        <v-list-item-title>Kevin Medina</v-list-item-title>
 
         <v-btn
           icon
@@ -63,5 +63,8 @@
 .link{
   text-decoration: none;
   color: white;
+}
+.perfil{
+  border: 1px solid #fff;
 }
 </style>

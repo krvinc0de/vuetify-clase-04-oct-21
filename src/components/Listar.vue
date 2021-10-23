@@ -1,14 +1,15 @@
 <template>
   <div>
-    <div class="pa-2 ma-2">
-        <div class="text-h4 text-center">
-            Usuarios del sistema
-        </div>
+    <div>
+      <Header texto="Usuarios registrados"/>
+    </div>
+    <div class="contenido">
+    <div class="pa-4">
         <div>
             <v-data-table 
             :headers="encabezados"
             :items="usuarioDB"
-            :items-per-page="10"
+            :items-per-page="5"
             class="elevation-10"
             >
               <template #[`item.editar`]="{ item }">
@@ -57,16 +58,15 @@
             </v-dialog>
         </div>
     </div>
-        <Footer/>
+    </div>
     </div>
 </template>
 
 <script>
-import Footer from '@/components/Footer.vue'
-
+import Header from '@/components/Header.vue'
 export default {
     components:{
-      Footer
+      Header
     },
     data() {
         return {
@@ -127,3 +127,9 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.contenido{
+  min-height: calc(100vh - 80px - 70px);
+}
+</style>
