@@ -13,7 +13,7 @@
             class="pa-10 border-10"
         >
             <v-text-field
-            v-model="name"
+            v-model="usuario.nombre"
             :counter="10"
             :rules="nameRules"
             label="Name"
@@ -21,7 +21,7 @@
             ></v-text-field>
 
             <v-text-field
-            v-model="email"
+            v-model="usuario.correo"
             :rules="emailRules"
             label="E-mail"
             required
@@ -30,7 +30,7 @@
             <v-btn
             color="success"
             class="mr-4"
-            @click="modificarUsuario"
+            @click="modificarUsuario()"
             >
             <v-icon left>
                 mdi-content-save
@@ -67,7 +67,7 @@
         v => !!v || 'E-mail is required',
         v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
       ],
-      usuario: {}
+      usuario: []
 
     }),
 
@@ -76,10 +76,25 @@
         window.location.href="listar"
       },
       modificarUsuario () {
-        
+            let that = this
+            fetch('http://localhost/?actualizar='+that.usuario.id,{
+                method:"POST",
+                body: JSON.stringify(that.usuario)
+            })
+            .then( respuesta => respuesta.json())
+            .then ((datos => {
+                console.log(datos)
+                window.location.href = 'listar'
+            }))
       },
       obtenerUsuario(){
           console.log(this.idUsuario)
+          fetch('http://localhost/?consultar='+this.idUsuario)
+          .then( respuesta => respuesta.json())
+          .then((datos) =>{
+                this.usuario = datos[0]
+                console.log('usuario', this.usuario.id)
+            })
       }
     },
     mounted() {
