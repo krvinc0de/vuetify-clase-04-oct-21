@@ -1,4 +1,5 @@
 <template>
+  <div>
     <div class="pa-2 ma-2">
         <div class="text-h4 text-center">
             Usuarios del sistema
@@ -56,12 +57,17 @@
             </v-dialog>
         </div>
     </div>
+        <Footer/>
+    </div>
 </template>
 
 <script>
-
+import Footer from '@/components/Footer.vue'
 
 export default {
+    components:{
+      Footer
+    },
     data() {
         return {
             usuarioDB: [],
