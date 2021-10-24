@@ -1,5 +1,10 @@
 <template>
-
+<div>
+  <Header texto="Mis datos"/>
+  <div class="contenido">
+    <Datos/>
+  </div>
+</div>
 </template>
 
 <script>

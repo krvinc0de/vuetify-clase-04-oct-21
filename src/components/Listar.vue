@@ -34,9 +34,9 @@
             >
               <v-card>
                 <v-card-title class="text-h5">
-                  Seguro que quieres eliminar al usuario?
+                  Atencion!!
                 </v-card-title>
-                <v-card-text>Si lo eliminas no podras recuperar la informacion del usuario eliminado.</v-card-text>
+                <v-card-text>Si eliminas un usuario no podras recuperar la informacion del usuario eliminado.</v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
                   <v-btn

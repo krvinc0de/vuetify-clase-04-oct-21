@@ -72,17 +72,10 @@
                   mdi-lock
                 </v-icon>
                   <v-card-title class="text-h6">
-                  Usuario Registrado
+                  Usuario editado
                 </v-card-title>
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn
-                    color="red darken-1"
-                    text
-                    @click="dialog = false"
-                  >
-                    Continuar
-                  </v-btn>
                   <v-spacer></v-spacer>
                   <v-btn
                     color="green darken-1"
