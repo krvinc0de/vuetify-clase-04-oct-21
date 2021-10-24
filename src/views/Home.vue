@@ -1,19 +1,15 @@
 <template>
-  <div>
-    <Header texto="Mis datos"/>
 
-  </div>
 </template>
 
 <script>
 import Header from '@/components/Header.vue'
+import Datos from '@/components/Datos.vue'
   export default {
-    data: () => ({
-      overlay: false,
-    }),
     name: 'Home',
     components: {
-      Header
+      Header,
+      Datos
     }
   }
 </script>
@@ -25,4 +21,7 @@ import Header from '@/components/Header.vue'
   justify-content: center;
   align-items: center;
 }
-<style/>
+.card{
+  padding-top: 10px;
+}
+</style>
